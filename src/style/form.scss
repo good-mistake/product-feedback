@@ -1,0 +1,27 @@
+@import "./font.scss";
+@mixin form-input {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f8fd;
+  color: #3a4374;
+  @include Body2;
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: #a1a1a1;
+  }
+
+  &:focus {
+    border-color: #4661e6;
+    outline: none;
+  }
+
+  &.filled {
+    background-color: #f7f8fd;
+  }
+
+  &.error {
+    border-color: #d73737;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Gaming/Desktop/html/product-feedback/src/app/view/page.tsx"],"sourcesContent":["\"use client\";\r\nimport React from \"react\";\r\nimport { useEffect, useState, useRef } from \"react\";\r\nimport Image from \"next/image\";\r\n\r\nconst page = () => {\r\n  const route = useRouter();\r\n  return (\r\n    <div className=\"flex items-start justify-center gap-10 min-h-screen p-10 \">\r\n      page{\" \"}\r\n      <div className=\"header\">\r\n        <div>\r\n          <Image\r\n            src={\"/assets/suggestions/icon-suggestions.svg\"}\r\n            width={24}\r\n            height={24}\r\n            alt=\"suggestions\"\r\n          />\r\n          <h3>Roadmap </h3>\r\n        </div>\r\n        <button onClick={() => route.push(\"/add\")}>+ Add Feedback</button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default page;\r\n"],"names":[],"mappings":";;;;AAGA;AAHA;;;AAKA,MAAM,OAAO;IACX,MAAM,QAAQ;IACd,qBACE,8OAAC;QAAI,WAAU;;YAA4D;YACpE;0BACL,8OAAC;gBAAI,WAAU;;kCACb,8OAAC;;0CACC,8OAAC,6HAAA,CAAA,UAAK;gCACJ,KAAK;gCACL,OAAO;gCACP,QAAQ;gCACR,KAAI;;;;;;0CAEN,8OAAC;0CAAG;;;;;;;;;;;;kCAEN,8OAAC;wBAAO,SAAS,IAAM,MAAM,IAAI,CAAC;kCAAS;;;;;;;;;;;;;;;;;;AAInD;uCAEe","debugId":null}}]
+}

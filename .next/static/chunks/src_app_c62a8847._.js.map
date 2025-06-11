@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 12, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Gaming/Desktop/html/product-feedback/src/app/%5Bid%5D/loading.tsx"],"sourcesContent":["\"use client\";\r\nimport animationData from \"../Animation - 1748181041132.json\";\r\nimport Lottie from \"lottie-react\";\r\n\r\nexport default function Loading() {\r\n  return (\r\n    <div className=\"flex items-center justify-center min-h-screen\">\r\n      <Lottie animationData={animationData} loop={true} />\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;;AAIe,SAAS;IACtB,qBACE,6LAAC;QAAI,WAAU;kBACb,cAAA,6LAAC,2JAAA,CAAA,UAAM;YAAC,eAAe,oHAAA,CAAA,UAAa;YAAE,MAAM;;;;;;;;;;;AAGlD;KANwB","debugId":null}}]
+}

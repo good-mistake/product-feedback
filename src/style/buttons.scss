@@ -1,0 +1,122 @@
+@import "./font.scss";
+
+@mixin button1 {
+  width: 158px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #ad1fea;
+  color: #f2f4fe;
+  @include H4;
+  cursor: pointer;
+  &:hover {
+    background-color: #c75af6;
+  }
+}
+@mixin button2 {
+  width: 158px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #4661e6;
+  color: #f2f4fe;
+  @include H4;
+  cursor: pointer;
+  &:hover {
+    background-color: #7c91f9;
+  }
+}
+@mixin button3 {
+  width: 158px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #3a4374;
+  color: #f2f4fe;
+  @include H4;
+  cursor: pointer;
+  &:hover {
+    background-color: #656ea3;
+  }
+}
+@mixin button4 {
+  width: 158px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #d73737;
+  color: #f2f4fe;
+  @include H4;
+  cursor: pointer;
+  &:hover {
+    background-color: #e98888;
+  }
+}
+@mixin button-goback-1 {
+  width: 75px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ffff;
+  color: #647196;
+  @include H4;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@mixin button-goback-2 {
+  width: 158px;
+  height: 53px;
+  border-radius: 10px;
+  background-color: #373f68;
+  color: #ffff;
+  @include H4;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+@mixin upvote-button {
+  background-color: #f2f4fe;
+  min-width: 40px;
+  min-height: 53px;
+  color: #3a4374;
+  transition: all 0.2s ease;
+  @include Body3;
+  &:hover {
+    background-color: #cfd7ff;
+    color: #4661e6;
+  }
+
+  &:active {
+    background-color: #4661e6;
+    color: white;
+  }
+}
+@mixin filter1 {
+  background-color: #f2f4fe;
+  padding: 0.3rem 0.9rem;
+  color: #4661e6;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  @include Body3;
+  &:hover {
+    background-color: #cfd7ff;
+    color: #4661e6;
+  }
+
+  &:active {
+    background-color: #4661e6;
+    color: white;
+  }
+}
+@mixin filter-button {
+  background-color: #373f68;
+  color: #f2f4fe;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+
+  &.active {
+    color: #cfd7ff;
+  }
+}

@@ -1195,7 +1195,10 @@ main .right .header > div > div ul li.active {
 
 @media (width <= 600px) {
   .detail {
+    flex-direction: column;
+    width: 95%;
     margin: 2rem auto;
+    display: flex;
   }
 }
 

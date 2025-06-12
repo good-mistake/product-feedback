@@ -729,6 +729,9 @@ main {
   gap: 10px;
   @media (max-width: 600px) {
     margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
   }
   > div {
     &:first-child {

@@ -134,7 +134,7 @@ const Client = ({ feedback }: { feedback: any }) => {
                 className="upvotes"
                 onClick={async () => {
                   setIsLoading(true);
-                  if (!feedback?._id || !feedback?.publicUserId) {
+                  if (!feedback?._id || !currentUser?.id) {
                     setIsLoading(false);
                     return;
                   }
@@ -143,12 +143,11 @@ const Client = ({ feedback }: { feedback: any }) => {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                       productId: feedback._id,
-                      publicUserId: feedback.publicUserId,
+                      publicUserId: currentUser.id,
                     }),
                   });
 
                   const result = await res.json();
-
                   setUpvotes(result.upvotes);
                   setIsLoading(false);
                 }}
@@ -176,7 +175,7 @@ const Client = ({ feedback }: { feedback: any }) => {
                 className="upvotes"
                 onClick={async () => {
                   setIsLoading(true);
-                  if (!feedback?._id || !feedback?.publicUserId) {
+                  if (!feedback?._id || !currentUser?.id) {
                     setIsLoading(false);
                     return;
                   }
@@ -185,12 +184,11 @@ const Client = ({ feedback }: { feedback: any }) => {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                       productId: feedback._id,
-                      publicUserId: feedback.publicUserId,
+                      publicUserId: currentUser.id,
                     }),
                   });
 
                   const result = await res.json();
-
                   setUpvotes(result.upvotes);
                   setIsLoading(false);
                 }}

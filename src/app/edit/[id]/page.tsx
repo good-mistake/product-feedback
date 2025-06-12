@@ -85,7 +85,17 @@ const Page = () => {
   }
 
   const feedback = data.products.find((e) => e.publicId === params?.id);
-  if (!feedback) return <div>Feedback not found</div>;
+  if (!feedback)
+    return (
+      <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">
+        Feedback not found
+      </div>
+    );
+  console.log("params.id:", params?.id);
+  console.log(
+    "product ids:",
+    data.products.map((p) => p._id)
+  );
 
   return (
     <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">

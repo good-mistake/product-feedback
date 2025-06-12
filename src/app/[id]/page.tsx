@@ -6,8 +6,8 @@ import Client from "./Client";
 export async function generateStaticParams() {
   return await generateParamsFromFeedbacks();
 }
-
-const Page = async ({ params }: { params: { id: string } }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Page = async ({ params }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const feedback = (await getFeedbackById(params.id)) as any;
 

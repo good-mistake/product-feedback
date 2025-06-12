@@ -14,8 +14,7 @@ export default async function handler(req, res) {
 
   try {
     const clientIp = requestIp.getClientIp(req);
-    const { userAgent, guestToken } = JSON.parse(req.body);
-
+    const { userAgent, guestToken } = req.body;
     let guest = await GuestUser.findOne({ guestToken });
 
     if (!guest) {

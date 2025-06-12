@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "next/navigation";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import animationData from "../../Animation - 1748181041132.json";
 import animationCancel from "../../Animation - 1748797716617.json";
@@ -27,7 +26,8 @@ const Page = () => {
   const statusRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
-  useAuthRedirect();
+  useAuthRedirect(Array.isArray(params?.id) ? params.id[0] : params?.id);
+
   useEffect(() => {
     const fetchGuest = async () => {
       const res = await fetch("/api/guest", {

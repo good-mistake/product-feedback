@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 import animationLoad from "../Animation - 1748797716617.json";
 import animationData from "../Animation - 1748181041132.json";
 import useAuthRedirect from "@/utils/useAuthRedirect";
-
+import { useParams } from "next/navigation";
 type GuestUser = {
   name: string;
   username: string;
@@ -19,6 +19,8 @@ type GuestUser = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Client = ({ feedback }: { feedback: any }) => {
   const route = useRouter();
+  const params = useParams();
+  const id = params?.id || feedback?._id;
   const [upvotes, setUpvotes] = useState(feedback.upvotes);
   const [isLoading, setIsLoading] = useState(false);
   const [commentText, setCommentText] = useState("");
@@ -52,7 +54,7 @@ const Client = ({ feedback }: { feedback: any }) => {
       (acc: number, comment: any) => acc + (comment?.replies?.length || 0),
       0
     ) || 0);
-  useAuthRedirect();
+  useAuthRedirect(id);
   useEffect(() => {
     const fetchFeedback = async () => {
       try {

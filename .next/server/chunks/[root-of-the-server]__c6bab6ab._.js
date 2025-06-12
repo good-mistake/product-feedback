@@ -209,20 +209,17 @@ async function handler(req, res) {
         const { userAgent, guestToken: clientGuestToken } = req.body;
         let guest = null;
         let newGuestToken = clientGuestToken;
-        // 1. Try guestToken
         if (clientGuestToken) {
             guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
                 guestToken: clientGuestToken
             });
         }
-        // 2. Fallback: try userAgent + IP
         if (!guest) {
             guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
                 userAgent,
                 ip: clientIp
             });
         }
-        // 3. Create new guest if not found
         if (!guest) {
             newGuestToken = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$uuid__$5b$external$5d$__$28$uuid$2c$__esm_import$29$__["v4"])();
             guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].create({
@@ -234,19 +231,16 @@ async function handler(req, res) {
                 productRequest: []
             });
         } else {
-            // 4. Update guestToken if missing
             if (!guest.guestToken) {
                 newGuestToken = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$uuid__$5b$external$5d$__$28$uuid$2c$__esm_import$29$__["v4"])();
                 guest.guestToken = newGuestToken;
             }
-            // 5. Update userAgent/ip if changed
             if (guest.userAgent !== userAgent || guest.ip !== clientIp) {
                 guest.userAgent = userAgent;
                 guest.ip = clientIp;
             }
             await guest.save();
         }
-        // 6. Copy seed products if not already copied
         if (!guest.hasCopiedProduct) {
             const seedProducts = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].find({
                 isPublic: true,
@@ -274,7 +268,6 @@ async function handler(req, res) {
             guest.hasCopiedProduct = true;
             await guest.save();
         }
-        // 7. Return updated guest data
         const updatedGuest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findById(guest._id).populate("productRequest");
         return res.status(200).json({
             publicUserId: updatedGuest.publicUserId,

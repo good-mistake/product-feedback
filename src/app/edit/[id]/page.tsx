@@ -87,6 +87,15 @@ const Page = () => {
     return (
       <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">
         Feedback not found
+        <button onClick={() => route.push("/")}>
+          <Image
+            src={"/assets/shared/icon-arrow-left.svg"}
+            width={8}
+            height={4}
+            alt="arrow left"
+          />
+          Go Back
+        </button>
       </div>
     );
 

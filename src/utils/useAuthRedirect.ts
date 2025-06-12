@@ -3,24 +3,24 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const useAuthRedirect = (id?: string | undefined) => {
+const useAuthRedirect = (id?: string) => {
   const router = useRouter();
 
   useEffect(() => {
     if (!id) return;
 
     const checkAccess = async () => {
-      const token = localStorage.getItem("token");
+      const guestToken = localStorage.getItem("guestToken");
       const publicUserId = localStorage.getItem("publicUserId");
 
-      if (!token && !publicUserId) {
+      if (!guestToken || !publicUserId) {
         router.replace("/");
         return;
       }
 
       const res = await fetch(`/api/verify-access?id=${id}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          "x-guest-token": guestToken,
         },
       });
 

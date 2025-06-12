@@ -47,13 +47,19 @@ const Client = ({ feedback }: { feedback: any }) => {
     ) || 0);
   useEffect(() => {
     const fetchFeedback = async () => {
-      const res = await fetch(`/api/feedback?id=${feedback._id}`);
-      const data = await res.json();
-      setFeedbackData(data);
+      try {
+        const res = await fetch(`/api/feedback?id=${feedback._id}`);
+        if (!res.ok) throw new Error("Failed to fetch feedback");
+        const data = await res.json();
+        setFeedbackData(data);
+      } catch (err) {
+        console.error("Error fetching feedback:", err);
+      }
     };
 
     fetchFeedback();
   }, [feedback._id]);
+
   useEffect(() => {
     const publicUserId = localStorage.getItem("publicUserId");
     const randomUsername = `guest${Math.floor(Math.random() * 10000)}`;

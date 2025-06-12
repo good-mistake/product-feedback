@@ -24,6 +24,7 @@ const Client = ({ feedback }: { feedback: any }) => {
   const [feedbackData, setFeedbackData] = useState(feedback);
   const [replyContent, setReplyContent] = useState<Record<string, string>>({});
   const [currentUser, setCurrentUser] = useState<GuestUser | null>(null);
+  const [addFeedComment, setAddFeedComment] = useState(false);
   const [addFeedback, setAddFeedback] = useState(false);
   const [activeReply, setActiveReply] = useState<{
     commentId: string;
@@ -490,7 +491,25 @@ const Client = ({ feedback }: { feedback: any }) => {
               setCommentText("");
             }}
           >
-            Post Comment
+            <button
+              onClick={() => {
+                setAddFeedComment((prev) => !prev);
+                setTimeout(() => {
+                  route.push("/add");
+                }, 200);
+              }}
+            >
+              {addFeedComment ? (
+                <Lottie
+                  animationData={animationLoad}
+                  loop={true}
+                  autoplay={true}
+                  className="upvoteLoad addFeedBack"
+                />
+              ) : (
+                "Post Comment"
+              )}
+            </button>
           </button>
         </div>
       </div>

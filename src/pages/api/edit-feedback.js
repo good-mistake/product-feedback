@@ -10,7 +10,6 @@ export default async function handler(req, res) {
 
   try {
     const { title, description, category, productId, status } = req.body;
-    console.log(title, description, category, productId, status, "backend");
     if (!mongoose.Types.ObjectId.isValid(productId)) {
       return res.status(400).json({ error: "Invalid productId" });
     }

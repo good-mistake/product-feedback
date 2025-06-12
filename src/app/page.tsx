@@ -30,10 +30,20 @@ export default function Home() {
   const route = useRouter();
   useEffect(() => {
     const fetchGuest = async () => {
+      let guestToken = localStorage.getItem("guestToken");
+
+      if (!guestToken) {
+        guestToken = crypto.randomUUID();
+        localStorage.setItem("guestToken", guestToken);
+      }
+
       const res = await fetch("/api/guest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userAgent: navigator.userAgent }),
+        body: JSON.stringify({
+          userAgent: navigator.userAgent,
+          guestToken,
+        }),
       });
 
       const result = await res.json();

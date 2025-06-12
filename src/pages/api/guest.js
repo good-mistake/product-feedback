@@ -14,14 +14,15 @@ export default async function handler(req, res) {
 
   try {
     const clientIp = requestIp.getClientIp(req);
-    const { userAgent } = req.body;
+    const { userAgent, guestToken } = JSON.parse(req.body);
 
-    let guest = await GuestUser.findOne({ userAgent, ip: clientIp });
+    let guest = await GuestUser.findOne({ guestToken });
 
     if (!guest) {
       guest = await GuestUser.create({
         publicUserId: crypto.randomUUID(),
         userAgent,
+        guestToken,
         ip: clientIp,
         hasCopiedProduct: false,
         productRequest: [],

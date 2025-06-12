@@ -8,6 +8,7 @@ const guestUserSchema = new mongoose.Schema({
   productRequest: [
     { type: mongoose.Schema.Types.ObjectId, ref: "ProductRequest" },
   ],
+  guestToken: { type: String, required: true, unique: true },
 });
 
 export default mongoose.models.GuestUser ||

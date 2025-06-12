@@ -257,10 +257,12 @@ const Page = () => {
 
                 if (res.ok) {
                   route.push("/");
+                  setError("");
                 } else {
                   setError("Failed to delete feedback.");
                 }
                 setIsCancelling(false);
+                setError("");
               }}
             >
               {isCancelling ? (

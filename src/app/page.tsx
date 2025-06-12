@@ -37,7 +37,6 @@ export default function Home() {
       });
 
       const result = await res.json();
-      console.log("API result:", result);
       setData(result);
       localStorage.setItem("publicUserId", result.publicUserId);
     };

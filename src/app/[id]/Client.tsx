@@ -7,6 +7,7 @@ import animationUpvote from "../Animation - 1748797716617.json";
 import { useIsMobile } from "@/utils/useIsMobile";
 import Lottie from "lottie-react";
 import animationLoad from "../Animation - 1748797716617.json";
+import animationData from "../Animation - 1748181041132.json";
 
 type GuestUser = {
   name: string;
@@ -58,8 +59,17 @@ const Client = ({ feedback }: { feedback: any }) => {
       id: publicUserId,
     });
   }, []);
-  if (!currentUser) return null;
-  console.log(currentUser);
+  if (!currentUser)
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Lottie
+          animationData={animationData}
+          loop
+          autoplay
+          className="w-24 h-24"
+        />
+      </div>
+    );
   return (
     <div className="flex items-start justify-center gap-10 min-h-screen p-10 detail">
       <div>

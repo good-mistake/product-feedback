@@ -48,7 +48,6 @@ const connectDB = async ()=>{
     if (__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connection.readyState >= 1) return;
     try {
         await __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connect(MONGO_URI);
-        console.log("Mongo Connected");
     } catch (e) {
         console.error(e);
     }
@@ -164,11 +163,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$
 ;
 ;
 async function generateParamsFromFeedbacks() {
-    await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["connectDB"])();
-    const feedbacks = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].find({}, "_id");
-    return feedbacks.map((f)=>({
-            id: f._id.toString()
-        }));
+    try {
+        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["connectDB"])();
+        const feedbacks = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].find({}, "_id").lean();
+        if (!feedbacks || feedbacks.length === 0) {
+            console.warn("No feedbacks found during build.");
+            return [];
+        }
+        return feedbacks.map((f)=>({
+                id: f._id.toString()
+            }));
+    } catch (error) {
+        console.error("Error in generateParamsFromFeedbacks:", error);
+        return [];
+    }
 }
 }}),
 "[project]/src/app/[id]/Client.tsx (client reference/proxy) <module evaluation>": ((__turbopack_context__) => {
@@ -232,6 +240,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f5b$id$5d2f$Clie
 async function generateStaticParams() {
     return await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$generateParams$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["generateParamsFromFeedbacks"])();
 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const page = async ({ params })=>{
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const feedback = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$getFeedbackById$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getFeedbackById"])(params.id);
@@ -263,7 +272,7 @@ const page = async ({ params })=>{
         feedback: serializedFeedback
     }, void 0, false, {
         fileName: "[project]/src/app/[id]/page.tsx",
-        lineNumber: 49,
+        lineNumber: 46,
         columnNumber: 10
     }, this);
 };

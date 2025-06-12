@@ -28,27 +28,31 @@ export default function Home() {
   const isMobile = useIsMobile(600);
   const [openNav, setOpenNav] = useState(false);
   const route = useRouter();
+
   useEffect(() => {
     const fetchGuest = async () => {
-      let guestToken = localStorage.getItem("guestToken");
-
-      if (!guestToken) {
-        guestToken = crypto.randomUUID();
-        localStorage.setItem("guestToken", guestToken);
-      }
+      const guestToken = localStorage.getItem("guestToken");
 
       const res = await fetch("/api/guest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userAgent: navigator.userAgent,
-          guestToken,
+          guestToken: guestToken || null,
         }),
       });
 
       const result = await res.json();
+
+      if (result?.publicUserId) {
+        localStorage.setItem("publicUserId", result.publicUserId);
+      }
+      if (result?.guestToken) {
+        localStorage.setItem("guestToken", result.guestToken);
+        localStorage.setItem("publicUserId", result.publicUserId);
+      }
+
       setData(result);
-      localStorage.setItem("publicUserId", result.publicUserId);
     };
 
     fetchGuest();

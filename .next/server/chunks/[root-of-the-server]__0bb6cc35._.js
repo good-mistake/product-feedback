@@ -31,7 +31,6 @@ const connectDB = async ()=>{
     if (__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connection.readyState >= 1) return;
     try {
         await __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connect(MONGO_URI);
-        console.log("Mongo Connected");
     } catch (e) {
         console.error(e);
     }
@@ -139,7 +138,12 @@ const guestUserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mo
             type: __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema.Types.ObjectId,
             ref: "ProductRequest"
         }
-    ]
+    ],
+    guestToken: {
+        type: String,
+        required: true,
+        unique: true
+    }
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.GuestUser || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("GuestUser", guestUserSchema);
 }}),

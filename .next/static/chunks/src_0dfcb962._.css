@@ -2397,6 +2397,10 @@ main .right .header > div > div ul li.active {
     display: flex;
   }
 
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
+
   .h-full {
     height: 100%;
   }
@@ -2407,6 +2411,10 @@ main .right .header > div > div ul li.active {
 
   .min-h-screen {
     min-height: 100vh;
+  }
+
+  .w-24 {
+    width: calc(var(--spacing) * 24);
   }
 
   .w-full {

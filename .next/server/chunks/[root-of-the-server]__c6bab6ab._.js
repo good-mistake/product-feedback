@@ -31,7 +31,6 @@ const connectDB = async ()=>{
     if (__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connection.readyState >= 1) return;
     try {
         await __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connect(MONGO_URI);
-        console.log("Mongo Connected");
     } catch (e) {
         console.error(e);
     }
@@ -63,7 +62,12 @@ const guestUserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mo
             type: __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema.Types.ObjectId,
             ref: "ProductRequest"
         }
-    ]
+    ],
+    guestToken: {
+        type: String,
+        required: true,
+        unique: true
+    }
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.GuestUser || __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("GuestUser", guestUserSchema);
 }}),
@@ -202,27 +206,54 @@ async function handler(req, res) {
     }
     try {
         const clientIp = __TURBOPACK__imported__module__$5b$externals$5d2f$request$2d$ip__$5b$external$5d$__$28$request$2d$ip$2c$__cjs$29$__["default"].getClientIp(req);
-        const { userAgent } = req.body;
-        let guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
-            userAgent,
-            ip: clientIp
-        });
+        const { userAgent, guestToken: clientGuestToken } = req.body;
+        let guest = null;
+        let newGuestToken = clientGuestToken;
+        // 1. Try guestToken
+        if (clientGuestToken) {
+            guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
+                guestToken: clientGuestToken
+            });
+        }
+        // 2. Fallback: try userAgent + IP
         if (!guest) {
+            guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOne({
+                userAgent,
+                ip: clientIp
+            });
+        }
+        // 3. Create new guest if not found
+        if (!guest) {
+            newGuestToken = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$uuid__$5b$external$5d$__$28$uuid$2c$__esm_import$29$__["v4"])();
             guest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].create({
                 publicUserId: __TURBOPACK__imported__module__$5b$externals$5d2f$crypto__$5b$external$5d$__$28$crypto$2c$__cjs$29$__["default"].randomUUID(),
                 userAgent,
                 ip: clientIp,
+                guestToken: newGuestToken,
                 hasCopiedProduct: false,
                 productRequest: []
             });
+        } else {
+            // 4. Update guestToken if missing
+            if (!guest.guestToken) {
+                newGuestToken = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$uuid__$5b$external$5d$__$28$uuid$2c$__esm_import$29$__["v4"])();
+                guest.guestToken = newGuestToken;
+            }
+            // 5. Update userAgent/ip if changed
+            if (guest.userAgent !== userAgent || guest.ip !== clientIp) {
+                guest.userAgent = userAgent;
+                guest.ip = clientIp;
+            }
+            await guest.save();
         }
+        // 6. Copy seed products if not already copied
         if (!guest.hasCopiedProduct) {
             const seedProducts = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].find({
                 isPublic: true,
                 isSeed: true
             });
             const duplicatedProducts = seedProducts.map((product)=>{
-                const newProduct = {
+                return new __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"]({
                     title: product.title,
                     category: product.category,
                     upvotes: product.upvotes,
@@ -236,17 +267,18 @@ async function handler(req, res) {
                     user: guest._id,
                     createdAt: new Date(),
                     updatedAt: new Date()
-                };
-                return new __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"](newProduct);
+                });
             });
             const inserted = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].insertMany(duplicatedProducts);
             guest.productRequest = inserted.map((doc)=>doc._id);
             guest.hasCopiedProduct = true;
             await guest.save();
         }
+        // 7. Return updated guest data
         const updatedGuest = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$GuestUser$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findById(guest._id).populate("productRequest");
         return res.status(200).json({
             publicUserId: updatedGuest.publicUserId,
+            guestToken: updatedGuest.guestToken,
             productCount: updatedGuest.productRequest.length,
             products: updatedGuest.productRequest
         });

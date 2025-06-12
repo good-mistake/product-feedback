@@ -1,3 +1,5 @@
 {
-  "/api/guest": "pages/api/guest.js"
+  "/api/feedback": "pages/api/feedback.js",
+  "/api/guest": "pages/api/guest.js",
+  "/api/verify-access": "pages/api/verify-access.js"
 }

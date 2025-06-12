@@ -10,21 +10,40 @@ const useAuthRedirect = (id?: string) => {
     if (!id) return;
 
     const checkAccess = async () => {
-      const guestToken = localStorage.getItem("guestToken");
-      const publicUserId = localStorage.getItem("publicUserId");
+      let guestToken = localStorage.getItem("guestToken");
+      let publicUserId = localStorage.getItem("publicUserId");
 
       if (!guestToken || !publicUserId) {
-        router.replace("/");
-        return;
+        const res = await fetch("/api/guest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userAgent: navigator.userAgent,
+            guestToken: guestToken || null,
+          }),
+        });
+
+        if (!res.ok) {
+          router.replace("/");
+          return;
+        }
+
+        const data = await res.json();
+        guestToken = data.guestToken;
+        publicUserId = data.publicUserId;
+
+        if (guestToken) localStorage.setItem("guestToken", guestToken);
+        if (publicUserId) localStorage.setItem("publicUserId", publicUserId);
       }
 
-      const res = await fetch(`/api/verify-access?id=${id}`, {
+      // Verify access
+      const accessRes = await fetch(`/api/verify-access?id=${id}`, {
         headers: {
-          "x-guest-token": guestToken,
+          "x-guest-token": guestToken!,
         },
       });
 
-      if (res.status !== 200) {
+      if (accessRes.status !== 200) {
         router.replace("/");
       }
     };

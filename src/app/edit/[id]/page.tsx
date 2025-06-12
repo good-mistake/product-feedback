@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "next/navigation";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import animationData from "../../Animation - 1748181041132.json";
 import animationCancel from "../../Animation - 1748797716617.json";
@@ -26,8 +27,7 @@ const Page = () => {
   const statusRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
-  useAuthRedirect(Array.isArray(params?.id) ? params.id[0] : params?.id);
-
+  useAuthRedirect();
   useEffect(() => {
     const fetchGuest = async () => {
       const res = await fetch("/api/guest", {
@@ -45,14 +45,13 @@ const Page = () => {
 
   useEffect(() => {
     if (data) {
-      const found = data.products.find((e) => e.publicId === params?.id);
+      const found = data.products.find((e) => e._id === params?.id);
       if (found) {
         setTitle(found.title);
         setDescription(found.description);
       }
     }
   }, [data, params?.id]);
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -83,19 +82,13 @@ const Page = () => {
       </div>
     );
   }
-
-  const feedback = data.products.find((e) => e.publicId === params?.id);
+  const feedback = data.products.find((e) => e._id === params?.id);
   if (!feedback)
     return (
       <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">
         Feedback not found
       </div>
     );
-  console.log("params.id:", params?.id);
-  console.log(
-    "product ids:",
-    data.products.map((p) => p._id)
-  );
 
   return (
     <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">

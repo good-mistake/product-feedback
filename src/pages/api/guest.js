@@ -14,18 +14,41 @@ export default async function handler(req, res) {
 
   try {
     const clientIp = requestIp.getClientIp(req);
-    const { userAgent, guestToken } = req.body;
-    let guest = await GuestUser.findOne({ guestToken });
+    const { userAgent, guestToken: clientGuestToken } = req.body;
+
+    let guest = null;
+    let newGuestToken = clientGuestToken;
+
+    if (clientGuestToken) {
+      guest = await GuestUser.findOne({ guestToken: clientGuestToken });
+    }
 
     if (!guest) {
+      guest = await GuestUser.findOne({ userAgent, ip: clientIp });
+    }
+
+    if (!guest) {
+      newGuestToken = uuidv4();
       guest = await GuestUser.create({
         publicUserId: crypto.randomUUID(),
         userAgent,
-        guestToken,
         ip: clientIp,
+        guestToken: newGuestToken,
         hasCopiedProduct: false,
         productRequest: [],
       });
+    } else {
+      if (!guest.guestToken) {
+        newGuestToken = uuidv4();
+        guest.guestToken = newGuestToken;
+      }
+
+      if (guest.userAgent !== userAgent || guest.ip !== clientIp) {
+        guest.userAgent = userAgent;
+        guest.ip = clientIp;
+      }
+
+      await guest.save();
     }
 
     if (!guest.hasCopiedProduct) {
@@ -35,7 +58,7 @@ export default async function handler(req, res) {
       });
 
       const duplicatedProducts = seedProducts.map((product) => {
-        const newProduct = {
+        return new ProductRequest({
           title: product.title,
           category: product.category,
           upvotes: product.upvotes,
@@ -49,9 +72,7 @@ export default async function handler(req, res) {
           user: guest._id,
           createdAt: new Date(),
           updatedAt: new Date(),
-        };
-
-        return new ProductRequest(newProduct);
+        });
       });
 
       const inserted = await ProductRequest.insertMany(duplicatedProducts);
@@ -67,6 +88,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       publicUserId: updatedGuest.publicUserId,
+      guestToken: updatedGuest.guestToken,
       productCount: updatedGuest.productRequest.length,
       products: updatedGuest.productRequest,
     });

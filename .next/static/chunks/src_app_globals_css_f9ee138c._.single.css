@@ -271,6 +271,10 @@
     display: flex;
   }
 
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
+
   .h-full {
     height: 100%;
   }
@@ -281,6 +285,10 @@
 
   .min-h-screen {
     min-height: 100vh;
+  }
+
+  .w-24 {
+    width: calc(var(--spacing) * 24);
   }
 
   .w-full {

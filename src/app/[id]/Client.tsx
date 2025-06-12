@@ -476,6 +476,7 @@ const Client = ({ feedback }: { feedback: any }) => {
           <p>{250 - commentText.length} characters left</p>{" "}
           <button
             onClick={async () => {
+              setAddFeedComment(true);
               const res = await fetch("/api/comment", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -489,27 +490,19 @@ const Client = ({ feedback }: { feedback: any }) => {
               const updatedFeedback = await res.json();
               setFeedbackData(updatedFeedback);
               setCommentText("");
+              setAddFeedComment(false);
             }}
           >
-            <button
-              onClick={() => {
-                setAddFeedComment((prev) => !prev);
-                setTimeout(() => {
-                  route.push("/add");
-                }, 200);
-              }}
-            >
-              {addFeedComment ? (
-                <Lottie
-                  animationData={animationLoad}
-                  loop={true}
-                  autoplay={true}
-                  className="upvoteLoad addFeedBack"
-                />
-              ) : (
-                "Post Comment"
-              )}
-            </button>
+            {addFeedComment ? (
+              <Lottie
+                animationData={animationLoad}
+                loop={true}
+                autoplay={true}
+                className="upvoteLoad addFeedBack"
+              />
+            ) : (
+              "Post Comment"
+            )}
           </button>
         </div>
       </div>

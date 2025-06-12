@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   return await generateParamsFromFeedbacks();
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Page = async ({ params }: any) => {
+const page = async ({ params }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const feedback = (await getFeedbackById(params.id)) as any;
 
@@ -46,4 +46,4 @@ const Page = async ({ params }: any) => {
   return <Client feedback={serializedFeedback} />;
 };
 
-export default Page;
+export default page;

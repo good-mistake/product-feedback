@@ -286,7 +286,7 @@ const Client = ({ feedback })=>{
                                     className: "upvotes",
                                     onClick: async ()=>{
                                         setIsLoading(true);
-                                        if (!feedback?._id || !currentUser?.id) {
+                                        if (!feedback?._id || !feedback?.publicUserId) {
                                             setIsLoading(false);
                                             return;
                                         }
@@ -312,10 +312,19 @@ const Client = ({ feedback })=>{
                                             alt: "comment"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 155,
+                                            lineNumber: 156,
                                             columnNumber: 17
                                         }, this),
-                                        isLoading ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$Animation__$2d$__1748797716617$2e$json__$28$json$29$__["default"] : upvotes
+                                        isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lottie$2d$react$2f$build$2f$index$2e$es$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"], {
+                                            animationData: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$Animation__$2d$__1748797716617$2e$json__$28$json$29$__["default"],
+                                            loop: true,
+                                            autoplay: true,
+                                            className: "upvoteLoad"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/[id]/Client.tsx",
+                                            lineNumber: 164,
+                                            columnNumber: 19
+                                        }, this) : upvotes
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
@@ -328,27 +337,27 @@ const Client = ({ feedback })=>{
                                             children: feedbackData.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: feedbackData.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 168,
+                                            lineNumber: 178,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: feedbackData.category
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 169,
+                                            lineNumber: 179,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 166,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -390,14 +399,14 @@ const Client = ({ feedback })=>{
                                             alt: "comment"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 196,
+                                            lineNumber: 206,
                                             columnNumber: 17
                                         }, this),
                                         isLoading ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$Animation__$2d$__1748797716617$2e$json__$28$json$29$__["default"] : upvotes
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 174,
+                                    lineNumber: 184,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -410,20 +419,20 @@ const Client = ({ feedback })=>{
                                             alt: "comment"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 206,
+                                            lineNumber: 216,
                                             columnNumber: 17
                                         }, this),
                                         feedbackData.comments?.length ?? 0
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 205,
+                                    lineNumber: 215,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/[id]/Client.tsx",
-                            lineNumber: 173,
+                            lineNumber: 183,
                             columnNumber: 13
                         }, this),
                         !isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -436,14 +445,14 @@ const Client = ({ feedback })=>{
                                     alt: "comment"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 218,
+                                    lineNumber: 228,
                                     columnNumber: 15
                                 }, this),
                                 feedbackData.comments?.length ?? 0
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/[id]/Client.tsx",
-                            lineNumber: 217,
+                            lineNumber: 227,
                             columnNumber: 13
                         }, this)
                     ]
@@ -467,7 +476,7 @@ const Client = ({ feedback })=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/[id]/Client.tsx",
-                        lineNumber: 230,
+                        lineNumber: 240,
                         columnNumber: 9
                     }, this),
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -490,7 +499,7 @@ const Client = ({ feedback })=>{
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                            lineNumber: 245,
+                                                            lineNumber: 255,
                                                             columnNumber: 25
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -500,12 +509,12 @@ const Client = ({ feedback })=>{
                                                                 alt: "profile"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 258,
+                                                                lineNumber: 268,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                            lineNumber: 257,
+                                                            lineNumber: 267,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -514,7 +523,7 @@ const Client = ({ feedback })=>{
                                                                     children: comment.user.name
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                    lineNumber: 267,
+                                                                    lineNumber: 277,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -524,19 +533,19 @@ const Client = ({ feedback })=>{
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                    lineNumber: 268,
+                                                                    lineNumber: 278,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                            lineNumber: 266,
+                                                            lineNumber: 276,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                    lineNumber: 243,
+                                                    lineNumber: 253,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -548,26 +557,26 @@ const Client = ({ feedback })=>{
                                                     children: "Reply"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                    lineNumber: 271,
+                                                    lineNumber: 281,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 242,
+                                            lineNumber: 252,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                             children: comment.content
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 283,
+                                            lineNumber: 293,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 241,
+                                    lineNumber: 251,
                                     columnNumber: 17
                                 }, this),
                                 comment.replies && // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -590,7 +599,7 @@ const Client = ({ feedback })=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 294,
+                                                                        lineNumber: 304,
                                                                         columnNumber: 33
                                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -600,12 +609,12 @@ const Client = ({ feedback })=>{
                                                                             alt: "profile"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                            lineNumber: 305,
+                                                                            lineNumber: 315,
                                                                             columnNumber: 35
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 304,
+                                                                        lineNumber: 314,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -614,7 +623,7 @@ const Client = ({ feedback })=>{
                                                                                 children: reply.user.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                                lineNumber: 317,
+                                                                                lineNumber: 327,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -624,19 +633,19 @@ const Client = ({ feedback })=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                                lineNumber: 318,
+                                                                                lineNumber: 328,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 316,
+                                                                        lineNumber: 326,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 292,
+                                                                lineNumber: 302,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -647,13 +656,13 @@ const Client = ({ feedback })=>{
                                                                 children: "Reply"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 321,
+                                                                lineNumber: 331,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                        lineNumber: 291,
+                                                        lineNumber: 301,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -665,14 +674,14 @@ const Client = ({ feedback })=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 333,
+                                                                lineNumber: 343,
                                                                 columnNumber: 29
                                                             }, this),
                                                             reply.content
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                        lineNumber: 332,
+                                                        lineNumber: 342,
                                                         columnNumber: 27
                                                     }, this),
                                                     " ",
@@ -687,7 +696,7 @@ const Client = ({ feedback })=>{
                                                                         }))
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 338,
+                                                                lineNumber: 348,
                                                                 columnNumber: 31
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -728,24 +737,24 @@ const Client = ({ feedback })=>{
                                                                     className: "upvoteLoad addFeedBack"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                    lineNumber: 383,
+                                                                    lineNumber: 393,
                                                                     columnNumber: 35
                                                                 }, this) : "Post Reply"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 347,
+                                                                lineNumber: 357,
                                                                 columnNumber: 31
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                        lineNumber: 337,
+                                                        lineNumber: 347,
                                                         columnNumber: 29
                                                     }, this)
                                                 ]
                                             }, reply._id, true, {
                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                lineNumber: 290,
+                                                lineNumber: 300,
                                                 columnNumber: 25
                                             }, this),
                                             reply.repliesToReply?.map(// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -765,7 +774,7 @@ const Client = ({ feedback })=>{
                                                                         }
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 409,
+                                                                        lineNumber: 419,
                                                                         columnNumber: 37
                                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -775,12 +784,12 @@ const Client = ({ feedback })=>{
                                                                             alt: "profile"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                            lineNumber: 421,
+                                                                            lineNumber: 431,
                                                                             columnNumber: 39
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 420,
+                                                                        lineNumber: 430,
                                                                         columnNumber: 37
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -789,7 +798,7 @@ const Client = ({ feedback })=>{
                                                                                 children: nestedReply.user?.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                                lineNumber: 433,
+                                                                                lineNumber: 443,
                                                                                 columnNumber: 37
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -799,24 +808,24 @@ const Client = ({ feedback })=>{
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                                lineNumber: 434,
+                                                                                lineNumber: 444,
                                                                                 columnNumber: 37
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                        lineNumber: 432,
+                                                                        lineNumber: 442,
                                                                         columnNumber: 35
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                lineNumber: 406,
+                                                                lineNumber: 416,
                                                                 columnNumber: 33
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                            lineNumber: 405,
+                                                            lineNumber: 415,
                                                             columnNumber: 31
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -828,26 +837,26 @@ const Client = ({ feedback })=>{
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                                    lineNumber: 439,
+                                                                    lineNumber: 449,
                                                                     columnNumber: 33
                                                                 }, this),
                                                                 nestedReply.content
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                                            lineNumber: 438,
+                                                            lineNumber: 448,
                                                             columnNumber: 31
                                                         }, this)
                                                     ]
                                                 }, nestedReply._id || `nested-${reply._id}-${i}`, true, {
                                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                                    lineNumber: 399,
+                                                    lineNumber: 409,
                                                     columnNumber: 29
                                                 }, this))
                                         ]
                                     }, reply._id, true, {
                                         fileName: "[project]/src/app/[id]/Client.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 299,
                                         columnNumber: 23
                                     }, this);
                                 }),
@@ -862,7 +871,7 @@ const Client = ({ feedback })=>{
                                                     }))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 451,
+                                            lineNumber: 461,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -899,31 +908,31 @@ const Client = ({ feedback })=>{
                                                 className: "upvoteLoad addFeedBack"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                                lineNumber: 489,
+                                                lineNumber: 499,
                                                 columnNumber: 25
                                             }, this) : "Post Reply"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/[id]/Client.tsx",
-                                            lineNumber: 460,
+                                            lineNumber: 470,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 450,
+                                    lineNumber: 460,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, comment._id, true, {
                             fileName: "[project]/src/app/[id]/Client.tsx",
-                            lineNumber: 235,
+                            lineNumber: 245,
                             columnNumber: 15
                         }, this);
                     })
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/[id]/Client.tsx",
-                lineNumber: 229,
+                lineNumber: 239,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -933,7 +942,7 @@ const Client = ({ feedback })=>{
                         children: "Add Comment"
                     }, void 0, false, {
                         fileName: "[project]/src/app/[id]/Client.tsx",
-                        lineNumber: 507,
+                        lineNumber: 517,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -941,7 +950,7 @@ const Client = ({ feedback })=>{
                         onChange: (e)=>setCommentText(e.target.value)
                     }, void 0, false, {
                         fileName: "[project]/src/app/[id]/Client.tsx",
-                        lineNumber: 508,
+                        lineNumber: 518,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -953,7 +962,7 @@ const Client = ({ feedback })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                lineNumber: 513,
+                                lineNumber: 523,
                                 columnNumber: 11
                             }, this),
                             " ",
@@ -983,24 +992,24 @@ const Client = ({ feedback })=>{
                                     className: "upvoteLoad addFeedBack"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/[id]/Client.tsx",
-                                    lineNumber: 534,
+                                    lineNumber: 544,
                                     columnNumber: 15
                                 }, this) : "Post Comment"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/[id]/Client.tsx",
-                                lineNumber: 514,
+                                lineNumber: 524,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/[id]/Client.tsx",
-                        lineNumber: 512,
+                        lineNumber: 522,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/[id]/Client.tsx",
-                lineNumber: 506,
+                lineNumber: 516,
                 columnNumber: 7
             }, this)
         ]

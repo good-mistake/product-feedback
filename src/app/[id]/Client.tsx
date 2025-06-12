@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import animationUpvote from "../Animation - 1748797716617.json";
 import { useIsMobile } from "@/utils/useIsMobile";
 import Lottie from "lottie-react";
 import animationLoad from "../Animation - 1748797716617.json";
@@ -134,7 +133,7 @@ const Client = ({ feedback }: { feedback: any }) => {
                 className="upvotes"
                 onClick={async () => {
                   setIsLoading(true);
-                  if (!feedback?._id || !currentUser?.id) {
+                  if (!feedback?._id || !feedback?.publicUserId) {
                     setIsLoading(false);
                     return;
                   }
@@ -148,6 +147,7 @@ const Client = ({ feedback }: { feedback: any }) => {
                   });
 
                   const result = await res.json();
+
                   setUpvotes(result.upvotes);
                   setIsLoading(false);
                 }}
@@ -159,7 +159,16 @@ const Client = ({ feedback }: { feedback: any }) => {
                   alt="comment"
                 />
 
-                {isLoading ? animationUpvote : upvotes}
+                {isLoading ? (
+                  <Lottie
+                    animationData={animationLoad}
+                    loop={true}
+                    autoplay={true}
+                    className="upvoteLoad"
+                  />
+                ) : (
+                  upvotes
+                )}
               </li>
             )}
 
@@ -200,7 +209,16 @@ const Client = ({ feedback }: { feedback: any }) => {
                   alt="comment"
                 />
 
-                {isLoading ? animationUpvote : upvotes}
+                {isLoading ? (
+                  <Lottie
+                    animationData={animationLoad}
+                    loop={true}
+                    autoplay={true}
+                    className="upvoteLoad"
+                  />
+                ) : (
+                  upvotes
+                )}
               </li>
               <li className="commentNumber">
                 <Image

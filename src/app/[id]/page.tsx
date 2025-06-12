@@ -6,11 +6,8 @@ import Client from "./Client";
 export async function generateStaticParams() {
   return await generateParamsFromFeedbacks();
 }
-type Props = {
-  params: { id: string };
-};
 
-const page = async ({ params }: Props) => {
+const Page = async ({ params }: { params: { id: string } }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const feedback = (await getFeedbackById(params.id)) as any;
 
@@ -49,4 +46,4 @@ const page = async ({ params }: Props) => {
   return <Client feedback={serializedFeedback} />;
 };
 
-export default page;
+export default Page;

@@ -134,7 +134,10 @@ const Client = ({ feedback }: { feedback: any }) => {
                 className="upvotes"
                 onClick={async () => {
                   setIsLoading(true);
-
+                  if (!feedback?._id || !feedback?.publicUserId) {
+                    setIsLoading(false);
+                    return;
+                  }
                   const res = await fetch("/api/upvote", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -173,7 +176,10 @@ const Client = ({ feedback }: { feedback: any }) => {
                 className="upvotes"
                 onClick={async () => {
                   setIsLoading(true);
-
+                  if (!feedback?._id || !feedback?.publicUserId) {
+                    setIsLoading(false);
+                    return;
+                  }
                   const res = await fetch("/api/upvote", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

@@ -1192,7 +1192,7 @@ main .right .header > div > div ul li.active {
   display: grid;
 }
 
-@media (width <= 600px) {
+@media (width <= 900px) {
   .detail {
     flex-direction: column;
     width: 95%;
@@ -1693,6 +1693,10 @@ main .right .header > div > div ul li.active {
 
 .view .header > div button img {
   margin-right: .5rem;
+}
+
+.view .header > div button:hover {
+  background-color: inherit;
 }
 
 .view .header > div h3 {

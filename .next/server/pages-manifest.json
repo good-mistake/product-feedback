@@ -1,1 +1,8 @@
-{}
+{
+  "/api/add-feedback": "pages/api/add-feedback.js",
+  "/api/delete-feedback": "pages/api/delete-feedback.js",
+  "/api/edit-feedback": "pages/api/edit-feedback.js",
+  "/api/feedback": "pages/api/feedback.js",
+  "/api/guest": "pages/api/guest.js",
+  "/api/verify-access": "pages/api/verify-access.js"
+}

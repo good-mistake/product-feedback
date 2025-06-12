@@ -85,7 +85,7 @@ const Page = () => {
   const feedback = data.products.find((e) => e._id === params?.id);
   if (!feedback)
     return (
-      <div className="flex items-start justify-center gap-10 min-h-screen p-10 add">
+      <div className="flex items-start justify-center  min-h-screen p-10 add">
         Feedback not found
         <button onClick={() => route.push("/")}>
           <Image

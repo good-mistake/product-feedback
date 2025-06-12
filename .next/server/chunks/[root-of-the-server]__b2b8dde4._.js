@@ -31,7 +31,6 @@ const connectDB = async ()=>{
     if (__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connection.readyState >= 1) return;
     try {
         await __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connect(MONGO_URI);
-        console.log("Mongo Connected");
     } catch (e) {
         console.error(e);
     }

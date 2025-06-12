@@ -204,12 +204,35 @@ const Page = ()=>{
         }, this);
     }
     const feedback = data.products.find((e)=>e._id === params?.id);
+    console.log(data.products);
     if (!feedback) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex items-start justify-center gap-10 min-h-screen p-10 add",
-        children: "Feedback not found"
-    }, void 0, false, {
+        className: "flex items-start justify-center  min-h-screen p-10 add",
+        children: [
+            "Feedback not found",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                onClick: ()=>route.push("/"),
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        src: "/assets/shared/icon-arrow-left.svg",
+                        width: 8,
+                        height: 4,
+                        alt: "arrow left"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/edit/[id]/page.tsx",
+                        lineNumber: 92,
+                        columnNumber: 11
+                    }, this),
+                    "Go Back"
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/edit/[id]/page.tsx",
+                lineNumber: 91,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/app/edit/[id]/page.tsx",
-        lineNumber: 88,
+        lineNumber: 89,
         columnNumber: 7
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -225,14 +248,14 @@ const Page = ()=>{
                         alt: "arrow left"
                     }, void 0, false, {
                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                        lineNumber: 96,
+                        lineNumber: 106,
                         columnNumber: 9
                     }, this),
                     "Go Back"
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                lineNumber: 95,
+                lineNumber: 105,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -244,7 +267,7 @@ const Page = ()=>{
                         alt: "arrow left"
                     }, void 0, false, {
                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                        lineNumber: 105,
+                        lineNumber: 115,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -255,7 +278,7 @@ const Page = ()=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                        lineNumber: 111,
+                        lineNumber: 121,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -293,14 +316,14 @@ const Page = ()=>{
                                         children: "Feedback Title"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 151,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Add a short, descriptive headline"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 152,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -311,13 +334,13 @@ const Page = ()=>{
                                         onChange: (e)=>setTitle(e.target.value)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 153,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                lineNumber: 140,
+                                lineNumber: 150,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -329,14 +352,14 @@ const Page = ()=>{
                                         children: "Category"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 152,
+                                        lineNumber: 162,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Choose a category for your feedback"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 163,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -351,13 +374,13 @@ const Page = ()=>{
                                                 alt: "arrow down"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 159,
+                                                lineNumber: 169,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 154,
+                                        lineNumber: 164,
                                         columnNumber: 13
                                     }, this),
                                     showDropdown && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -377,18 +400,18 @@ const Page = ()=>{
                                                 children: cat
                                             }, cat, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 180,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                lineNumber: 151,
+                                lineNumber: 161,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -400,14 +423,14 @@ const Page = ()=>{
                                         children: "Update Status"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 185,
+                                        lineNumber: 195,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Change feature state"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 186,
+                                        lineNumber: 196,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -422,13 +445,13 @@ const Page = ()=>{
                                                 alt: "arrow down"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 202,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 197,
                                         columnNumber: 13
                                     }, this),
                                     showStatusDropdown && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -447,18 +470,18 @@ const Page = ()=>{
                                                 children: cat
                                             }, cat, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 213,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                lineNumber: 184,
+                                lineNumber: 194,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -468,14 +491,14 @@ const Page = ()=>{
                                         children: "Feedback Detail"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 218,
+                                        lineNumber: 228,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Include any specific comments on what should be improved, added, etc."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 219,
+                                        lineNumber: 229,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -485,13 +508,13 @@ const Page = ()=>{
                                         onChange: (e)=>setDescription(e.target.value)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 233,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                lineNumber: 217,
+                                lineNumber: 227,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -527,12 +550,12 @@ const Page = ()=>{
                                             className: "upvoteLoad"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                            lineNumber: 258,
+                                            lineNumber: 268,
                                             columnNumber: 17
                                         }, this) : "Delete"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 231,
+                                        lineNumber: 241,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -542,7 +565,7 @@ const Page = ()=>{
                                                 children: "Cancel"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 269,
+                                                lineNumber: 279,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -555,30 +578,30 @@ const Page = ()=>{
                                                     className: "upvoteLoad"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 282,
                                                     columnNumber: 19
                                                 }, this) : "Save Changes"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                                lineNumber: 270,
+                                                lineNumber: 280,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                        lineNumber: 268,
+                                        lineNumber: 278,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                                lineNumber: 230,
+                                lineNumber: 240,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                        lineNumber: 113,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this),
                     error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -586,19 +609,19 @@ const Page = ()=>{
                         children: error
                     }, void 0, false, {
                         fileName: "[project]/src/app/edit/[id]/page.tsx",
-                        lineNumber: 285,
+                        lineNumber: 295,
                         columnNumber: 19
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/edit/[id]/page.tsx",
-                lineNumber: 104,
+                lineNumber: 114,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/edit/[id]/page.tsx",
-        lineNumber: 94,
+        lineNumber: 104,
         columnNumber: 5
     }, this);
 };

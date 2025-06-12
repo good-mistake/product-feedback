@@ -31,7 +31,6 @@ const connectDB = async ()=>{
     if (__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connection.readyState >= 1) return;
     try {
         await __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].connect(MONGO_URI);
-        console.log("Mongo Connected");
     } catch (e) {
         console.error(e);
     }
@@ -134,15 +133,12 @@ async function handler(req, res) {
     });
     try {
         const { title, description, category, productId, status } = req.body;
-        console.log(title, description, category, productId, status, "backend");
         if (!__TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Types.ObjectId.isValid(productId)) {
             return res.status(400).json({
                 error: "Invalid productId"
             });
         }
-        const updatedProduct = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findOneAndUpdate({
-            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoose__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Types.ObjectId(String(productId))
-        }, {
+        const updatedProduct = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$ProductRequest$2e$js__$5b$api$5d$__$28$ecmascript$29$__["default"].findByIdAndUpdate(productId, {
             title,
             description,
             category,

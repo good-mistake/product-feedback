@@ -60,18 +60,36 @@ const useAuthRedirect = (id)=>{
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!id) return;
         const checkAccess = async ()=>{
-            const guestToken = localStorage.getItem("guestToken");
-            const publicUserId = localStorage.getItem("publicUserId");
+            let guestToken = localStorage.getItem("guestToken");
+            let publicUserId = localStorage.getItem("publicUserId");
             if (!guestToken || !publicUserId) {
-                router.replace("/");
-                return;
+                const res = await fetch("/api/guest", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        userAgent: navigator.userAgent,
+                        guestToken: guestToken || null
+                    })
+                });
+                if (!res.ok) {
+                    router.replace("/");
+                    return;
+                }
+                const data = await res.json();
+                guestToken = data.guestToken;
+                publicUserId = data.publicUserId;
+                if (guestToken) localStorage.setItem("guestToken", guestToken);
+                if (publicUserId) localStorage.setItem("publicUserId", publicUserId);
             }
-            const res = await fetch(`/api/verify-access?id=${id}`, {
+            // Verify access
+            const accessRes = await fetch(`/api/verify-access?id=${id}`, {
                 headers: {
                     "x-guest-token": guestToken
                 }
             });
-            if (res.status !== 200) {
+            if (accessRes.status !== 200) {
                 router.replace("/");
             }
         };

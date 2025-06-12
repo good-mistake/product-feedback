@@ -10,14 +10,13 @@ export default async function handler(req, res) {
 
   try {
     const { title, description, category, productId, status } = req.body;
+
     if (!mongoose.Types.ObjectId.isValid(productId)) {
       return res.status(400).json({ error: "Invalid productId" });
     }
 
-    const updatedProduct = await ProductRequest.findOneAndUpdate(
-      {
-        _id: new mongoose.Types.ObjectId(String(productId)),
-      },
+    const updatedProduct = await ProductRequest.findByIdAndUpdate(
+      productId,
       { title, description, category, status },
       { new: true }
     );

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Lottie from "lottie-react";
 import animationData from "../Animation - 1748181041132.json";
 import animationCancel from "../Animation - 1748797716617.json";
+import useAuthRedirect from "@/utils/useAuthRedirect";
 
 const Page = () => {
   const route = useRouter();
@@ -15,6 +16,7 @@ const Page = () => {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
+  useAuthRedirect();
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);

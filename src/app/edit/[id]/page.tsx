@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import animationData from "../../Animation - 1748181041132.json";
 import animationCancel from "../../Animation - 1748797716617.json";
+import useAuthRedirect from "@/utils/useAuthRedirect";
 
 const Page = () => {
   const params = useParams();
@@ -26,7 +27,7 @@ const Page = () => {
   const statusRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCancelling, setIsCancelling] = useState(false);
-
+  useAuthRedirect();
   useEffect(() => {
     const fetchGuest = async () => {
       const res = await fetch("/api/guest", {
@@ -51,6 +52,7 @@ const Page = () => {
       }
     }
   }, [data, params?.id]);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (

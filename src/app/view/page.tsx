@@ -8,7 +8,7 @@ import animationClick from "../Animation - 1749320637246.json";
 import animationData from "../Animation - 1748181041132.json";
 import Lottie from "lottie-react";
 import { useIsMobile } from "@/utils/useIsMobile";
-
+import useAuthRedirect from "@/utils/useAuthRedirect";
 const Page = () => {
   const route = useRouter();
   const [data, setData] = useState<{
@@ -26,7 +26,7 @@ const Page = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [prevStatus, setPrevStatus] = useState<string | any>(null);
   const isMobile = useIsMobile(600);
-
+  useAuthRedirect();
   useEffect(() => {
     const fetchGuest = async () => {
       const res = await fetch("/api/guest", {

@@ -8,6 +8,7 @@ import { useIsMobile } from "@/utils/useIsMobile";
 import Lottie from "lottie-react";
 import animationLoad from "../Animation - 1748797716617.json";
 import animationData from "../Animation - 1748181041132.json";
+import useAuthRedirect from "@/utils/useAuthRedirect";
 
 type GuestUser = {
   name: string;
@@ -43,6 +44,7 @@ const Client = ({ feedback }: { feedback: any }) => {
   const [repliesToReplyContent, setRepliesToReplyContent] = useState<{
     [replyId: string]: string;
   }>({});
+
   const totalCommentsAndReplies =
     (feedbackData.comments?.length || 0) +
     (feedbackData.comments?.reduce(
@@ -50,6 +52,7 @@ const Client = ({ feedback }: { feedback: any }) => {
       (acc: number, comment: any) => acc + (comment?.replies?.length || 0),
       0
     ) || 0);
+  useAuthRedirect();
   useEffect(() => {
     const fetchFeedback = async () => {
       try {

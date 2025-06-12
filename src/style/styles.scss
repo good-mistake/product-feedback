@@ -740,6 +740,7 @@ main {
       align-items: center;
       @media (max-width: 900px) {
         width: 95%;
+        margin: 1rem auto;
       }
       button {
         &:first-child {
@@ -864,13 +865,13 @@ main {
 
           @media (max-width: 900px) {
             width: 95%;
-            margin: 0 auto;
+            margin: 1rem auto;
           }
           > li {
             width: 549px;
             @media (max-width: 900px) {
               width: 95%;
-              margin: 0 auto;
+              margin: 1rem auto;
             }
             span {
               color: var(--color-purple);

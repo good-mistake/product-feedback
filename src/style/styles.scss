@@ -727,7 +727,7 @@ main {
   margin-top: 4rem;
   display: grid;
   gap: 10px;
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     margin: 2rem auto;
     display: flex;
     flex-direction: column;
@@ -1045,6 +1045,9 @@ main {
         align-items: center;
         img {
           margin-right: 0.5rem;
+        }
+        &:hover {
+          background-color: inherit;
         }
       }
       h3 {

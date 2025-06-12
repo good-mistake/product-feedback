@@ -25,7 +25,11 @@ const Client = ({ feedback }: { feedback: any }) => {
   const [replyContent, setReplyContent] = useState<Record<string, string>>({});
   const [currentUser, setCurrentUser] = useState<GuestUser | null>(null);
   const [addFeedComment, setAddFeedComment] = useState(false);
+  const [addFeedReply, setAddFeedReply] = useState<string | null>(null);
   const [addFeedback, setAddFeedback] = useState(false);
+  const [addFeedReplyToReply, setAddFeedReplyToReply] = useState<string | null>(
+    null
+  );
   const [activeReply, setActiveReply] = useState<{
     commentId: string;
     replyingToId: string;
@@ -264,7 +268,6 @@ const Client = ({ feedback }: { feedback: any }) => {
                         })
                       }
                     >
-                      {" "}
                       Reply
                     </button>
                   </ul>
@@ -334,6 +337,8 @@ const Client = ({ feedback }: { feedback: any }) => {
                               />
                               <button
                                 onClick={async () => {
+                                  setAddFeedReplyToReply(reply._id);
+
                                   const res = await fetch("/api/replyToReply", {
                                     method: "POST",
                                     headers: {
@@ -351,6 +356,7 @@ const Client = ({ feedback }: { feedback: any }) => {
 
                                   if (!res.ok) {
                                     console.error("Failed to post reply");
+                                    setAddFeedReplyToReply(null);
                                     return;
                                   }
 
@@ -361,9 +367,19 @@ const Client = ({ feedback }: { feedback: any }) => {
                                     [reply._id]: "",
                                   }));
                                   setReplyInputsOpen({});
+                                  setAddFeedReplyToReply(null);
                                 }}
                               >
-                                Post Reply
+                                {addFeedReplyToReply === reply._id ? (
+                                  <Lottie
+                                    animationData={animationLoad}
+                                    loop={true}
+                                    autoplay={true}
+                                    className="upvoteLoad addFeedBack"
+                                  />
+                                ) : (
+                                  "Post Reply"
+                                )}
                               </button>
                             </div>
                           )}
@@ -434,6 +450,8 @@ const Client = ({ feedback }: { feedback: any }) => {
                     />
                     <button
                       onClick={async () => {
+                        setAddFeedReply(comment._id);
+
                         const res = await fetch("/api/reply", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -455,9 +473,19 @@ const Client = ({ feedback }: { feedback: any }) => {
                           [comment._id]: "",
                         }));
                         setActiveReply(null);
+                        setAddFeedReply(null);
                       }}
                     >
-                      Post Reply
+                      {addFeedReply === comment._id ? (
+                        <Lottie
+                          animationData={animationLoad}
+                          loop={true}
+                          autoplay={true}
+                          className="upvoteLoad addFeedBack"
+                        />
+                      ) : (
+                        "Post Reply"
+                      )}
                     </button>
                   </div>
                 )}

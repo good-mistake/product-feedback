@@ -45,7 +45,15 @@ const Client = ({ feedback }: { feedback: any }) => {
       (acc: number, comment: any) => acc + (comment?.replies?.length || 0),
       0
     ) || 0);
+  useEffect(() => {
+    const fetchFeedback = async () => {
+      const res = await fetch(`/api/feedback?id=${feedback._id}`);
+      const data = await res.json();
+      setFeedbackData(data);
+    };
 
+    fetchFeedback();
+  }, [feedback._id]);
   useEffect(() => {
     const publicUserId = localStorage.getItem("publicUserId");
     const randomUsername = `guest${Math.floor(Math.random() * 10000)}`;

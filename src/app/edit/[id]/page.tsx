@@ -45,7 +45,7 @@ const Page = () => {
 
   useEffect(() => {
     if (data) {
-      const found = data.products.find((e) => e._id === params?.id);
+      const found = data.products.find((e) => e.publicId === params?.id);
       if (found) {
         setTitle(found.title);
         setDescription(found.description);
@@ -83,7 +83,8 @@ const Page = () => {
       </div>
     );
   }
-  const feedback = data.products.find((e) => e._id === params?.id);
+
+  const feedback = data.products.find((e) => e.publicId === params?.id);
   if (!feedback) return <div>Feedback not found</div>;
 
   return (

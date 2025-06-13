@@ -764,6 +764,10 @@ main {
         width: 95%;
         margin: 0 auto;
       }
+      @media (max-width: 600px) {
+        width: 98%;
+        margin: 0 auto;
+      }
     }
     &.comments {
       width: 730px;
@@ -777,6 +781,8 @@ main {
       @media (max-width: 600px) {
         padding: 1.5rem;
         margin: 1rem auto;
+        width: 98%;
+        padding: 1.7rem 1rem;
       }
       > h2 {
         @include H3;
@@ -821,6 +827,7 @@ main {
                   margin-left: 2rem;
                   @media (max-width: 600px) {
                     margin-left: 0.7rem;
+                    @include Body3;
                   }
                   &:first-child {
                     color: var(--color-dark2);
@@ -853,7 +860,7 @@ main {
               color: var(--color-dark3);
               font-weight: 300;
               margin: 1rem 0 0 0;
-              width: 100%;
+              width: 94%;
             }
           }
         }
@@ -864,8 +871,8 @@ main {
           align-self: flex-end;
 
           @media (max-width: 900px) {
-            width: 95%;
-            margin: 1rem auto;
+            width: 90%;
+            margin: 1.25rem auto 0.5rem;
           }
           > li {
             width: 549px;
@@ -891,6 +898,9 @@ main {
             height: 60%;
             width: 1px;
             background-color: rgba(151, 151, 151, 0.2);
+            @media (max-width: 900px) {
+              left: 8px;
+            }
           }
         }
         .nestedReply {
@@ -900,6 +910,10 @@ main {
           display: flex;
           flex-direction: column;
           list-style: none;
+          @media (max-width: 900px) {
+            margin-top: 0.25rem;
+            width: 85%;
+          }
           > ul {
             > ul {
               display: flex;
@@ -939,6 +953,9 @@ main {
       width: 95%;
       margin: 0 auto;
       padding: 1rem;
+    }
+    @media (max-width: 600px) {
+      width: 98%;
     }
 
     h3 {
